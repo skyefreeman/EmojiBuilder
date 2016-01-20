@@ -24,7 +24,7 @@ class EmojiCodeGenerator: NSObject {
         fileManager.createFileAtPath(fileDestination!, contents: nil, attributes: nil)
         
         // build the code string
-        var codeString = "\n\nimport Foundation\n\npublic struct Emoji {"
+        var codeString = "//\n//  Emoji.swift\n//  EmojiConstants\n//\n//  Created by Skye Freeman on 1/18/16.\n//  Copyright © 2016 Skye Freeman. All rights reserved.\n//\n\nimport Foundation\n\npublic struct Emoji {"
         for dict in emojiDictArray {
             for key in dict.keys {
                 codeString += "\n static public let \(dict[key]!) = \"\(key)\""
