@@ -24,10 +24,10 @@ class EmojiCodeGenerator: NSObject {
         fileManager.createFileAtPath(fileDestination!, contents: nil, attributes: nil)
         
         // build the code string
-        var codeString = "\n\nimport Foundation\n\nstruct Emoji {"
+        var codeString = "\n\nimport Foundation\n\npublic struct Emoji {"
         for dict in emojiDictArray {
             for key in dict.keys {
-                codeString += "\n static let \(dict[key]!) = \"\(key)\""
+                codeString += "\n static public let \(dict[key]!) = \"\(key)\""
             }
         }
         codeString += "\n}"
@@ -37,9 +37,3 @@ class EmojiCodeGenerator: NSObject {
         try! codeString.writeToFile(fileDestination!, atomically: true, encoding: NSUTF8StringEncoding)
     }
 }
-
-//import Foundation
-//
-//struct Emoji {
-//    static let blah = "blah"
-//}
